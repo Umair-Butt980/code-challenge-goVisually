@@ -15,11 +15,11 @@ const Header = (props) => {
       return;
     }
     console.log("fileObj is", fileObj);
-    //  reset file input
+    // Reset file input
     event.target.value = null;
-    //  is now empty
+    // Is now empty
     console.log(event.target.files);
-    //  can still access file object here
+    // Can still access file object here
     console.log(fileObj);
     console.log(fileObj.name);
   };
@@ -35,6 +35,7 @@ const Header = (props) => {
           ref={inputRef}
           type="file"
           onChange={handleFileChange}
+          multiple
         />
         <button
           onClick={handleClick}
