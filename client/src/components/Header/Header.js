@@ -1,28 +1,28 @@
 //Third party imports
-import React, { useRef } from "react";
-
-//Local Imports
-// import "./Header.css";
+import React, { useRef, useState } from "react";
 
 const Header = (props) => {
   const inputRef = useRef(null);
+
+  let images = [];
   const handleClick = () => {
     inputRef.current.click();
   };
+
   const handleFileChange = (event) => {
+    console.log(event, "This is the image");
     const fileObj = event.target.files && event.target.files[0];
     if (!fileObj) {
       return;
     }
     console.log("fileObj is", fileObj);
-    // Reset file input
-    event.target.value = null;
-    // Is now empty
+    // event.target.value = null;
     console.log(event.target.files);
-    // Can still access file object here
-    console.log(fileObj);
-    console.log(fileObj.name);
+    // making array of objects
+    images.push(event.target.files);
+    console.log(images[0], "<============IMAGES ARRAY===========");
   };
+
   return (
     <div className="bg-[#333333] p-12 flex justify-between">
       <div>
