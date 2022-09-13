@@ -1,26 +1,23 @@
 //Third party imports
 import React, { useRef, useState } from "react";
+import { useStateContext } from "../../Context/ContextProvider";
+import storeImagesInBackendService from "../../utils/apiCalls";
 
 const Header = (props) => {
   const inputRef = useRef(null);
+  const { imagesList, setImagesList } = useStateContext();
 
-  let images = [];
   const handleClick = () => {
     inputRef.current.click();
   };
 
   const handleFileChange = (event) => {
-    console.log(event, "This is the image");
     const fileObj = event.target.files && event.target.files[0];
     if (!fileObj) {
       return;
     }
-    console.log("fileObj is", fileObj);
-    // event.target.value = null;
-    console.log(event.target.files);
-    // making array of objects
-    images.push(event.target.files);
-    console.log(images[0], "<============IMAGES ARRAY===========");
+    setImagesList([...imagesList, ...event.target.files]);
+    storeImagesInBackendService(event.target.files);
   };
 
   return (

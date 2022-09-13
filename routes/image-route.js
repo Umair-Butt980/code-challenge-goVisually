@@ -10,13 +10,17 @@ const storage = multer.diskStorage({
   },
 });
 
-const fileFilter = (req, file, cb) => {
-  if (file.mimeType === "image/jpeg" || file.mimeType === "image/png") {
-    cb(null, true);
-  } else {
-    cb(new Error("PLease select png and JPEG files only"), false);
-  }
-};
+// const fileFilter = (req, file, cb) => {
+//   if (
+//     file.mimeType === "image/jpeg" ||
+//     file.mimeType === "image/png" ||
+//     file.mimeType === "image/jpg"
+//   ) {
+//     cb(null, true);
+//   } else {
+//     cb(new Error("Please select png and JPEG files only"), false);
+//   }
+// };
 
 const upload = multer({
   storage: storage,
@@ -24,7 +28,6 @@ const upload = multer({
     //acceptiing files upto 5MB
     fileSize: 1024 * 1024 * 5,
   },
-  fileFilter: fileFilter,
 });
 
 const router = express.Router();
