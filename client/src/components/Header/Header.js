@@ -23,8 +23,7 @@ const Header = (props) => {
     storeImagesInBackendService(event.target.files);
   };
   const handleChange = (file) => {
-    console.log(file, "=======");
-    setImagesList([file]);
+    setImagesList([...imagesList, file]);
   };
 
   return (
@@ -32,6 +31,7 @@ const Header = (props) => {
       <div>
         <h1 className="text-white">Drop Me </h1>
         <FileUploader
+          className="border-none"
           handleChange={handleChange}
           name="file"
           types={fileTypes}
