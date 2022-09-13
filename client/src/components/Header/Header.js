@@ -2,8 +2,11 @@
 import React, { useRef, useState } from "react";
 import { useStateContext } from "../../Context/ContextProvider";
 import storeImagesInBackendService from "../../utils/apiCalls";
+import { FileUploader } from "react-drag-drop-files";
 
 const Header = (props) => {
+  const fileTypes = ["JPG", "PNG", "GIF"];
+
   const inputRef = useRef(null);
   const { imagesList, setImagesList } = useStateContext();
 
@@ -19,12 +22,20 @@ const Header = (props) => {
     setImagesList([...imagesList, ...event.target.files]);
     storeImagesInBackendService(event.target.files);
   };
+  const handleChange = (file) => {
+    console.log(file, "=======");
+    setImagesList([file]);
+  };
 
   return (
     <div className="bg-[#333333] p-12 flex justify-between">
       <div>
         <h1 className="text-white">Drop Me </h1>
-        <p className="text-white"> Drag and drop files to be uploaded</p>
+        <FileUploader
+          handleChange={handleChange}
+          name="file"
+          types={fileTypes}
+        />
       </div>
       <div>
         <input
