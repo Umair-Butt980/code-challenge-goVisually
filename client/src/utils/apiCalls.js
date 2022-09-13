@@ -7,12 +7,13 @@ const storeImagesInBackendService = async (files) => {
   fd.append(files, "Images");
   await axios
     .post(`${process.env.REACT_APP_BACKEND_URL}upload-image`, fd, {
-      onUploadProgress: (progressEvent) => {
-        console.log(
-          "UPLOAD PROGRSESS =====>" +
-            Math.round((progressEvent.loaded / progressEvent.total) * 100 + "%")
-        );
-      },
+      //   onUploadProgress: (progressEvent) => {
+      // console.log(
+      //   (progressEvent.loaded / progressEvent.total) * 100,
+      //   "UPLOAD PROGRSESS =====>" +
+      //     Math.round((progressEvent.loaded / progressEvent.total) * 100 + "%")
+      // );
+      //   },
     })
     .then((response) => {
       console.log(response.data.message, "<=====API RESPONSE======");
