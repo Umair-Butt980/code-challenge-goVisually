@@ -33,6 +33,7 @@ const Header = (props) => {
           type="file"
           onChange={handleFileChange}
           multiple
+          accept="image/png , image/jpeg , image/webp"
         />
         <button
           onClick={handleClick}
