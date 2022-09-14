@@ -19,7 +19,7 @@ const Card = (props) => {
       {props.imagesList?.map((elem, i) => (
         <Fragment>
           <img
-            className="w-34 cursor-pointer"
+            className="w-34 cursor-pointer opacity-25"
             key={i}
             src={elem.url}
             alt="images"
@@ -29,9 +29,9 @@ const Card = (props) => {
             <div className="text-lg mb-2 text-white" key={i}>
               {elem.name}
             </div>
-          </div>
-          <div className="absolute text-red-500 top-0 inset-x-0 bg-white">
-            <div className="h-2 w-[45%] bg-[#0D6ABE] relative z-10" />
+            <div className="absolute top-0 inset-x-0 bg-white">
+              <div className="h-2 w-[45%] bg-[#0D6ABE] relative z-10" />
+            </div>
           </div>
           <Modal
             images={props.imagesList}
