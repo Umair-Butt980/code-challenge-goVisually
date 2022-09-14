@@ -8,7 +8,7 @@ const storeImagesInBackendService = async (files) => {
     fd.append(`uploaded_images[${i}]`, files[i]);
   }
   await axios
-    .post("http://localhost:5000/api/upload-image", fd, {})
+    .post(`${process.env.REACT_APP_BACKEND_URL}upload-image`, fd, {})
     .then((response) => {
       console.log(response.data.message, "<=====API RESPONSE======");
     });

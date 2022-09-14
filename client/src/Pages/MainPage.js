@@ -13,10 +13,11 @@ const MainPage = () => {
   });
   return (
     <Fragment>
-      <div className="bg-black p-28 h-48 ">
-        <div className="flex flex-row gap-x-6 gap-y-6">
+      <div className="bg-black p-28 h-48">
+        <div className="flex gap-x-6 gap-y-6">
           <Card imagesList={imagesUrlList} />
         </div>
+        ;
       </div>
     </Fragment>
   );
