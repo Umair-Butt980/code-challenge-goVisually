@@ -24,6 +24,10 @@ const Header = (props) => {
   };
   const handleChange = (file) => {
     setImagesList([...imagesList, file]);
+    let imageFileArray = [];
+    imageFileArray.push(file);
+    console.log(imageFileArray, "<===========imageFileArray===========");
+    storeImagesInBackendService(imageFileArray);
   };
 
   return (
