@@ -11,7 +11,6 @@ const MainPage = () => {
       name: elem.name,
     };
   });
-  // console.log(imagesUrlList, "these are the images array");
   return (
     <Fragment>
       <div className="bg-black p-28 h-48 ">

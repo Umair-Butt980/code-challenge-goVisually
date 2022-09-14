@@ -1,15 +1,12 @@
 import React, { Fragment, useEffect } from "react";
+import { useStateContext } from "../../Context/ContextProvider";
 
 const Modal = (props) => {
-  let image = props.images[0].url;
-  const nextImage = () => {
-    let nextImage = props.images[0 + 1];
-    image = nextImage.url;
-  };
+  const { showModal, image, setShowModal } = useStateContext();
 
   return (
     <Fragment>
-      {props.show ? (
+      {showModal && (
         <div
           className="relative z-10"
           aria-labelledby="modal-title"
@@ -25,31 +22,26 @@ const Modal = (props) => {
                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                       <img
                         className="w-34"
-                        src={image}
+                        src={image?.url}
                         alt="Sunset in the mountains"
                       />
-                      <div className="text-white mt-2">
-                        {props.images[0].name}
-                      </div>
+                      <div className="text-white mt-2">{image?.name}</div>
                     </div>
                   </div>
                 </div>
                 <div className="bg-black px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                  {props.button}
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={nextImage}
+                    onClick={() => setShowModal(false)}
                   >
-                    Next
+                    Close
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      ) : (
-        ""
       )}
     </Fragment>
   );

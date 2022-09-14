@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
     cb(null, "./uploads/");
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    cb(null, `${new Date().getTime()}_${file.originalname}`);
   },
 });
 
@@ -22,9 +22,8 @@ const router = express.Router();
 
 router.post(
   "/upload-image",
-  upload.array("uploaded_images"),
+  upload.any("uploaded_images", 30),
   (req, res, next) => {
-    console.log(req.file, "this is the request");
     res.json({
       message: "Files Successfully Uploaded",
     });

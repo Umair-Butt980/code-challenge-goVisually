@@ -1,13 +1,12 @@
 import React, { Fragment, useState } from "react";
+import { useStateContext } from "../../Context/ContextProvider";
 import Modal from "../Modal/Modal";
 
 const Card = (props) => {
-  let width =
-    50 %
-    console.log(props, "<=======these are The props recieved by te CARD=====");
-  const [showModal, setShowModal] = useState(false);
+  const { setShowModal, setImage } = useStateContext();
 
-  const openModal = () => {
+  const openModal = (elem) => {
+    setImage(elem);
     setShowModal(true);
   };
   const closeModal = () => {
@@ -23,7 +22,7 @@ const Card = (props) => {
             key={i}
             src={elem.url}
             alt="images"
-            onClick={openModal}
+            onClick={() => openModal(elem)}
           />
           <div className="bg-[#333333] px-6 py-4">
             <div className="text-lg mb-2 text-white" key={i}>
@@ -33,8 +32,8 @@ const Card = (props) => {
               <div className="h-2 w-[45%] bg-[#0D6ABE] relative z-10" />
             </div>
           </div>
-          <Modal
-            images={props.imagesList}
+          {/* <Modal
+            images={props.imagesList.filter((data) => data.url === elem.url)}
             show={showModal}
             button={
               <button
@@ -44,7 +43,7 @@ const Card = (props) => {
                 CLOSE
               </button>
             }
-          />
+          /> */}
           ;
         </Fragment>
       ))}

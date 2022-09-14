@@ -2,9 +2,11 @@ import React from "react";
 import axios from "axios";
 
 const storeImagesInBackendService = async (files) => {
-  //   console.log(files, "these are the files in the apiCalls");
+  console.log(files);
   const fd = new FormData();
-  fd.append(files, "Images");
+  for (let i = 0; i < files.length; i++) {
+    fd.append(`uploaded_images[${i}]`, files[i]);
+  }
   await axios
     .post("http://localhost:5000/api/upload-image", fd, {})
     .then((response) => {
