@@ -13,11 +13,8 @@ const MainPage = () => {
   });
   return (
     <Fragment>
-      <div className="bg-black p-28 h-48">
-        <div className="flex gap-x-6 gap-y-6">
-          <Card imagesList={imagesUrlList} />
-        </div>
-        ;
+      <div className="mt-10 flex  gap-x-6">
+        <Card imagesList={imagesUrlList} />
       </div>
     </Fragment>
   );

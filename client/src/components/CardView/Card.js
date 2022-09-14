@@ -14,11 +14,11 @@ const Card = (props) => {
   };
 
   return (
-    <div className="max-w-sm rounded overflow-hidden relative shadow-lg">
+    <Fragment>
       {props.imagesList?.map((elem, i) => (
-        <Fragment>
+        <div className="max-w-sm rounded overflow-hidden relative shadow-lg">
           <img
-            className="w-34 cursor-pointer opacity-25"
+            className="w-34 cursor-pointer opacity-25 float-left "
             key={i}
             src={elem.url}
             alt="images"
@@ -32,9 +32,9 @@ const Card = (props) => {
               <div className="h-2 w-[45%] bg-[#0D6ABE] relative z-10" />
             </div>
           </div>
-        </Fragment>
+        </div>
       ))}
-    </div>
+    </Fragment>
   );
 };
 
