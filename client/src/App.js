@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import "./App.css";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import MainPage from "./Pages/MainPage";
 
@@ -22,7 +22,6 @@ function App() {
           </Route>
         </Switch>
       </main>
-      {/* <Footer /> */}
     </Router>
   );
 }

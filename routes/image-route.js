@@ -24,7 +24,7 @@ router.post(
   "/upload-image",
   upload.array("uploaded_images"),
   (req, res, next) => {
-    console.log(req.data, "this is the request");
+    console.log(req.file, "this is the request");
     res.json({
       message: "Files Successfully Uploaded",
     });

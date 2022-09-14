@@ -29,7 +29,7 @@ const Header = (props) => {
   return (
     <div className="bg-[#333333] p-12 flex justify-between">
       <div>
-        <h1 className="text-white">Drop Me </h1>
+        <h1 className="text-white"> Drop Me </h1>
         <FileUploader
           className="border-none"
           handleChange={handleChange}

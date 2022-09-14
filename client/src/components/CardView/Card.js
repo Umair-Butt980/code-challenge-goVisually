@@ -2,7 +2,9 @@ import React, { Fragment, useState } from "react";
 import Modal from "../Modal/Modal";
 
 const Card = (props) => {
-  console.log(props, "<=======these are The props recieved by te CARD=====");
+  let width =
+    50 %
+    console.log(props, "<=======these are The props recieved by te CARD=====");
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -29,7 +31,7 @@ const Card = (props) => {
             </div>
           </div>
           <div className="absolute text-red-500 top-0 inset-x-0 bg-white">
-            <div className="h-2 w-[45%] bg-[#0D6ABE]" />
+            <div className="h-2 w-[45%] bg-[#0D6ABE] relative z-10" />
           </div>
           <Modal
             images={props.imagesList}

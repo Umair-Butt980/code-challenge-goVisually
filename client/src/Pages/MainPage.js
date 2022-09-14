@@ -11,7 +11,7 @@ const MainPage = () => {
       name: elem.name,
     };
   });
-  console.log(imagesUrlList, "these are the images array");
+  // console.log(imagesUrlList, "these are the images array");
   return (
     <div className="bg-black p-28 h-48 ">
       <div className="flex gap-x-6 gap-y-6">
