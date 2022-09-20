@@ -16,7 +16,6 @@ const Card = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log(bar, "<============this is bar");
       if (bar != 100) {
         setBar((bar) => bar + 10);
       }
