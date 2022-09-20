@@ -1,9 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useStateContext } from "../../Context/ContextProvider";
 import Modal from "../Modal/Modal";
 
 const Card = (props) => {
   const { setShowModal, setImage } = useStateContext();
+  const { bar, setBar } = useStateContext();
 
   const openModal = (elem) => {
     setImage(elem);
@@ -12,6 +13,15 @@ const Card = (props) => {
   const closeModal = () => {
     setShowModal(false);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(bar, "<============this is bar");
+      if (bar != 100) {
+        setBar((bar) => bar + 10);
+      }
+    }, 1000);
+  }, [bar]);
 
   return (
     <Fragment>
@@ -29,7 +39,7 @@ const Card = (props) => {
               {elem.name}
             </div>
             <div className="absolute top-0 inset-x-0 bg-white">
-              <div className="h-2 w-[45%] bg-[#0D6ABE] relative z-10" />
+              <div className={`h-2 w-${bar} bg-[#0D6ABE] relative z-10`} />
             </div>
           </div>
         </div>
